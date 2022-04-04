@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sea Side Restaurant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a href="">Sea Side</a>
+        </div>
+        <div class="nav-items">
+            <a href="#">Home</a>
+            <a href="#">Menu</a>
+            <a href="#">Bookings</a>
+            {% if user.is_authenticated %}
+            <a href="{% url 'account_logout' %}">Log Out</a>
+            {% else %}
+            <a href="{% url 'account_signup' %}">Sign Up</a>
+            <a href="{% url 'account_login' %}">Log In</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    {% block content %}
+
+
+    {% endblock content %}
+
+    <footer>
+        <p>
+            Nya Beachside 15,<br>
+            258 26 <br>
+            Sundsvall Sweden
+        </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+
+</html>

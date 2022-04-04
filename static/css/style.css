@@ -1,5 +1,53 @@
 /* Nav bar*/
 
-#white-txt {
-    color: #fff;
+nav {
+    background-color: black;
+    overflow: hidden;
+}
+
+.nav-items {
+    float: right;
+    text-align: center;
+    color: #B68A1B;
+    padding: 14px 16px;
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 48px;
+}
+
+.logo {
+    font-size: xx-large;
+    font-weight: 800;
+    float: left;
+    color: #B68A1B;
+}
+
+nav a {
+    text-decoration: none;
+    color: #B68A1B;
+    margin: 12px 24px 0 24px;
+}
+
+nav a:hover {
+    color: white;
+}
+
+
+
+/* body */
+
+body {
+    background-color: #ffebcd;
+}
+
+footer {
+    background-color: black;
+    overflow: hidden;
+    color: #B68A1B;
+}
+
+footer p {
+    float: left;
+    margin-left: 36px;
+    margin-top: 24px;
 }

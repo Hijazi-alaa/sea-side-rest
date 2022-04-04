@@ -12,7 +12,7 @@ class Book(models.Model):
     num_of_guests = models.PositiveIntegerField(default=2)
     arrival_time = models.DateTimeField()
     leaving_time = models.TimeField()
-    special_requests = models.TextField(max_length=300, blank=True)
+    special_requests = models.TextField(max_length=300, blank=True,)
     status = models.IntegerField(choices=STATUS, default=0)
 
 
@@ -21,4 +21,4 @@ class Book(models.Model):
 
 
     def __str__(self):
-        return f"booking {self.id}, time: {self.arrival_time} number of seats: {self.num_of_guests}"
+        return f"booking time: {self.arrival_time} number of guests: {self.num_of_guests}"
