@@ -1,34 +1,38 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import generic
 from django.http import HttpResponseRedirect
 from django.views import View
-from .models import Book
+from .models import Booking
 from .forms import BookingForm
 
 
 class BookingList(generic.ListView):
 
-    model = Book
+    model = Booking
 
     template_name = 'bookings.html'
 
     def get(self, request, *args, **kwargs):
-        book_list = Book.objects.all()
+        booking_list = Booking.objects.all()
         context = {
-            'book_list': book_list,
+            'booking_list': booking_list,
             'form': BookingForm(),
         }
         return render(request, self.template_name, context)
 
 
     def post(self, request, *args, **kwargs):
-        booking_form = BookingForm(data=request.POST)
-        if booking_form.is_valid():
-            booking_form.save()
-        else:
-            booking_form = BookingForm()
+        form = BookingForm()
+        if request.method == 'POST':
+            
+            form = BookingForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('/')
+            else:
+                print('error: invalid form')
 
-        return render(
-            request,
-            self.template_name, {'form': booking_form}
-            )
+
+
+        context = {'form': form}
+        return render(request, self.template_name, context)

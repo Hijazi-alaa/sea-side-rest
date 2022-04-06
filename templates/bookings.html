@@ -1,12 +1,14 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
+{% load crispy_forms_tags %}
 
-{% for book in book_list %}
+{% for booking in booking_list %}
 <div class="container">
     <div class="row">
         <div class="col-md-8 offset-md-2 account-div">
             <div class="card">
-                {% if book.status == 1 %}
+                {% if booking.status == 1 %}
                 <div class="card-header">
                     <h5>Booking approved</h5>
                     <div class="spinner-grow text-success" role="status">
@@ -25,22 +27,22 @@
                     <p class="card-text">
                         {% load account %}
                         {% user_display user %}<br>
-                        Booking time: {{ book.arrival_time }}
+                        Booking time: {{ booking.arrival_time }}
                         <br>
-                        Until: {{ book.leaving_time }}
+                        Until: {{ booking.leaving_time }}
                         <br>
-                        Party size: {{ book.num_of_guests }}
+                        Party size: {{ booking.num_of_guests }}
                         <br>
-                        Special Requests: {{ book.special_requests }}
+                        Special Requests: {{ booking.special_requests }}
                     </p>
                 </div>
-                {% if book.updated_on %}
+                {% if booking.updated_on %}
                 <div class="card-footer text-muted">
-                    {{ book.updated_on }}
+                    {{ booking.updated_on }}
                 </div>
                 {% else %}
                 <div class="card-footer text-muted">
-                    {{ book.created_on }}
+                    {{ booking.created_on }}
                 </div>
                 {% endif %}
             </div>
@@ -51,9 +53,10 @@
 
 <div class="container">
     <div class="row">
+
         <p>Create a table booking</p>
         <form method="post">
-            {{ form.as_p }}
+            {{ form | crispy }}
             {% csrf_token %}
 
             <input type="submit" value="submit">

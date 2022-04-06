@@ -126,6 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
+
 USE_L10N = True
 
 LANGUAGE_CODE = 'en-us'
