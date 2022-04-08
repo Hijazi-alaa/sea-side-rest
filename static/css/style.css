@@ -183,3 +183,10 @@ footer p {
     cursor: default;
     opacity: .24;
 }
+
+/* Booking page content*/
+
+
+.edit-booking {
+    float: right;
+}
