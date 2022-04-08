@@ -18,6 +18,9 @@
                         <a href="/edit/{{ booking.id }}">
                             <button>Edit</button>
                         </a>
+                        <a href="/delete/{{ booking.id }}">
+                            <button>delete</button>
+                        </a>
                     </div>
                 </div>
                 {% else %}
@@ -29,6 +32,9 @@
                     <div class="edit-booking">
                         <a href="/edit/{{ booking.id }}">
                             <button>Edit</button>
+                        </a>
+                        <a href="/delete/{{ booking.id }}">
+                            <button>delete</button>
                         </a>
                     </div>
                 </div>
@@ -75,7 +81,7 @@
             {{ form | crispy }}
             {% csrf_token %}
 
-            <button type="submit">Edit Booking</button>
+            <button type="submit">Send</button>
         </form>
 
     </div>
