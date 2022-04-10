@@ -16,3 +16,4 @@ class BookingForm(ModelForm):
             'leaving_time': TimePickerInput(),
             'arrival_time': DateTimePickerInput(),
         }
+

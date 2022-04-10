@@ -5,6 +5,10 @@ from .models import Booking
 from .forms import BookingForm
 
 
+def home_view(request):
+    return render(request, 'home.html')
+    
+
 class BookingList(generic.ListView):
 
     model = Booking
