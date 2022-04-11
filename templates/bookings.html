@@ -15,12 +15,14 @@
                         <span class="visually-hidden"></span>
                     </div>
                     <div class="edit-booking">
-                        <a href="/edit/{{ booking.id }}">
-                            <button>Edit</button>
-                        </a>
-                        <a href="/delete/{{ booking.id }}">
-                            <button>delete</button>
-                        </a>
+                        <button type="button" class="btn btn-warning">
+                            <a class="btn-a" href="/edit/{{ booking.id }}">Edit
+                            </a>
+                        </button>
+                        <button type="button" class="btn btn-danger">
+                            <a class="btn-a" href="/delete/{{ booking.id }}">
+                            </a>
+                        </button>
                     </div>
                 </div>
                 {% else %}
@@ -30,12 +32,15 @@
                         <span class="visually-hidden"></span>
                     </div>
                     <div class="edit-booking">
-                        <a href="/edit/{{ booking.id }}">
-                            <button>Edit</button>
-                        </a>
-                        <a href="/delete/{{ booking.id }}">
-                            <button>delete</button>
-                        </a>
+                        <button type="button" class="btn btn-warning">
+                            <a class="btn-a" href="/edit/{{ booking.id }}">Edit
+                            </a>
+                        </button>
+                        <button type="button" class="btn btn-danger">
+                            <a class="btn-a" href="/delete/{{ booking.id }}">
+                                Delete
+                            </a>
+                        </button>
                     </div>
                 </div>
                 {% endif %}

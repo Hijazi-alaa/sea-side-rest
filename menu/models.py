@@ -2,14 +2,21 @@ from django.db import models
 from cloudinary.models import CloudinaryField
 
 
-class Menu_items(models.Model):
-
-    item_name = models.CharField(max_length=30)
-    discreption = models.TextField(max_length=400)
-    item_img = CloudinaryField('image')
+class MenuItems(models.Model):
+    CATEGORIES = (
+        ("Starters", "Starters"),
+        ("Main Courses", "Main Courses"),
+        ("Side Orders", "Side Orders"),
+        ("Desserts", "Desserts"),
+    )
+    name = models.CharField(max_length=30)
+    category = models.CharField(max_length=30, choices=CATEGORIES, default="Main Courses")
+    discreption = models.TextField(max_length=800)
+    item_img = CloudinaryField('image', blank=True)
+    price = models.CharField(max_length=20, default="$10.00")
 
     class Meta:
-        ordering = ['item_name']
+        ordering = ['name']
 
     def __str__(self):
-        return self.item_name
+        return f"{self.name} | {self.category}"

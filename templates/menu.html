@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="flex-row">
+    <h2 class="d-flex justify-content-center subtitle">
+        Starters
+    </h2>
+</div>
+
+<section id="menu" class="menu section-bg">
+    {% for starter in starters %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2 menu-item">
+                <img src=" {{ starter.item_img.url }}" class="menu-img" alt="">
+                <div class="menu-content">
+                    <h5>{{ starter.name }}</h5><span>{{ starter.price}}</span>
+                </div>
+                <div class="menu-ingredients">
+                    <p>
+                        {{ starter.discreption }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+
+
+<div class="flex-row">
+    <h2 class="d-flex justify-content-center subtitle">
+        Main Courses
+    </h2>
+</div>
+<section id="menu" class="menu section-bg">
+    {% for main in mains %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2 menu-item">
+                <img src=" {{ main.item_img.url }}" class="menu-img" alt="">
+                <div class="menu-content">
+                    <h5>{{ main.name }}</h5><span>{{ main.price}}</span>
+                </div>
+                <div class="menu-ingredients">
+                    <p>
+                        {{ main.discreption }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+
+<div class="flex-row">
+    <h2 class="d-flex justify-content-center subtitle">
+        Side Orders
+    </h2>
+</div>
+<section id="menu" class="menu section-bg">
+    {% for side in sides %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2 menu-item">
+                <img src=" {{ side.item_img.url }}" class="menu-img" alt="">
+                <div class="menu-content">
+                    <h5>{{ side.name }}</h5><span>{{ side.price}}</span>
+                </div>
+                <div class="menu-ingredients">
+                    <p>
+                        {{ side.discreption }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+
+<div class="flex-row">
+    <h2 class="d-flex justify-content-center subtitle">
+        Desserts
+    </h2>
+</div>
+<section id="menu" class="menu section-bg">
+    {% for desert in deserts %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2 menu-item">
+                <img src=" {{ desert.item_img.url }}" class="menu-img" alt="">
+                <div class="menu-content">
+                    <h5>{{ desert.name }}</h5><span>{{ desert.price}}</span>
+                </div>
+                <div class="menu-ingredients">
+                    <p>
+                        {{ desert.discreption }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+
+
+{% endblock %}

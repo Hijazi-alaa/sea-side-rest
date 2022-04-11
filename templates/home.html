@@ -1,11 +1,28 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<div class="img-container">
-    <image class="landing-img" src="/media/ahusseaside-restaurant.jpg"></image>
 
-    <button class="btn">
-        <a href="{% url 'bookings' %}">Book Now</a>
-    </button>
+<div class="img-fluid ">
+    <div class="img-div">
+        <img class="hero-img" src="{% static '/images/hero-img.jpg' %}" alt="Seaside rest img">
+        <h2>
+            <em>
+                Sea Side
+            </em>
+        </h2>
+        <p>
+            Diner's choice restaurant's award 2021
+        </p>
+        <button class="img-btn">
+            <a href="{% url 'bookings' %}">
+                Book a Table
+            </a>
+        </button>
+    </div>
 </div>
+
+<section>
+
+</section>
+
 {% endblock %}
