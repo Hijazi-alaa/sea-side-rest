@@ -1,28 +1,88 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+<!--Hero Image-->
+<article>
+    <section>
+        <div class="img-div img-fluid">
+            <img class="hero-img" src="{% static '/images/hero-img.jpg' %}" alt="Seaside rest img">
+            <h2>
+                <em>
+                    Sea Side
+                </em>
+            </h2>
+            <p>
+                Diner's choice restaurant's award 2021
+            </p>
+            <button class="img-btn btn">
+                <a href="{% url 'bookings' %}">
+                    Book a Table
+                </a>
+            </button>
+        </div>
+    </section>
 
-<div class="img-fluid ">
-    <div class="img-div">
-        <img class="hero-img" src="{% static '/images/hero-img.jpg' %}" alt="Seaside rest img">
-        <h2>
-            <em>
-                Sea Side
-            </em>
-        </h2>
-        <p>
-            Diner's choice restaurant's award 2021
-        </p>
-        <button class="img-btn">
-            <a href="{% url 'bookings' %}">
-                Book a Table
-            </a>
-        </button>
-    </div>
-</div>
+    <!--Open Hours -->
+    <section class="open-hours">
+        <div class="container-fluid">
+            <div class="row row-grid">
+                <div class="col-md-6">
+                    <div class="my-5 d-flex justify-content-center">
+                        <h3 class="open-heading">
+                            Oppening Hours
+                        </h3>
+                    </div>
+                    <div class="d-flex justify-content-around time">
+                        <div>
+                            <p>Monday-Friday</p>
+                        </div>
+                        <div>
+                            <p><time datetime="10:00">10:00 AM</time>-<time datetime="23:00">23:00 PM</time></p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-around time">
+                        <div>
+                            <p>saturday-Sunday</p>
+                        </div>
+                        <div>
+                            <p><time datetime="12:00">12:00 PM</time>-<time datetime="23:00">23:00 PM</time></p>
+                        </div>
+                    </div>
+                </div>
 
-<section>
+                <!-- Google Map Location-->
 
-</section>
+                <div class="col-md-6">
+                    <div class="my-5 d-flex justify-content-center">
+                        <h3 class="open-heading">
+                            Our Location
+                        </h3>
+                    </div>
+                    <div class="col-4 offset-3" id="map">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</article>
+<script>
+    initMap() {
+        const seaside = {
+            lat: 62.390246,
+            lng: 17.320694
+        };
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 14,
+            center: seaside,
+        });
+        const marker = new google.maps.Marker({
+            position: seaside,
+            map: map,
+        });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvK0tGuAa1_UCZ0B5U_hrdgt8zHzurUX8&callback=initMap&v=weekly" async></script>
+
 
 {% endblock %}

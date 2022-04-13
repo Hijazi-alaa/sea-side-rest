@@ -12,14 +12,7 @@ a {
 
 /* Nav bar*/
 
-
-
-nav {
-    background-color: black;
-    overflow: hidden;
-}
-
-.nav-items {
+.nav-style {
     font-family: 'Fira Sans', sans-serif;
     float: right;
     text-align: center;
@@ -39,17 +32,33 @@ nav {
     margin-top: 6px;
 }
 
-nav a {
+ul>.nav-style,
+.logo {
     text-decoration: none;
     color: #cda45e;
     margin: 12px 24px 0 24px;
 }
 
-nav a:hover {
+.nav-style:hover {
     color: white;
 }
 
+.nav-style:active {
+    color: #8A7356;
+}
 
+.logo:hover {
+    color: white;
+}
+
+.logo:active {
+    color: #8A7356;
+}
+
+
+.fa {
+    color: #cda45e;
+}
 
 /* body */
 
@@ -275,6 +284,33 @@ footer p {
     font: bolder;
     font-weight: 800;
     font-family: 'Fira Sans', sans-serif;
+}
+
+/*open hours and map section */
+
+.open-hours {
+    margin-top: 36px;
+    margin-bottom: 36px;
+}
+
+.open-hours>.justify-content-center {
+    margin-bottom: 36px;
+}
+
+.open-hours .open-heading {
+    font-family: 'Abril Fatface', cursive;
+    font-weight: 700;
+}
+
+.time p {
+    font-family: 'Roboto Slab', serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#map {
+    height: 320px;
+    width: 60%;
 }
 
 
