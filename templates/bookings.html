@@ -33,11 +33,11 @@
                     </div>
                     <div class="edit-booking">
                         <button type="button" class="btn btn-warning">
-                            <a class="btn-a" href="/edit/{{ booking.id }}">Edit
+                            <a class="btn-a" href="{% url 'edit' booking.id %}">Edit
                             </a>
                         </button>
                         <button type="button" class="btn btn-danger">
-                            <a class="btn-a" href="/delete/{{ booking.id }}">
+                            <a class="btn-a" href="{% url 'delete' booking.id %}">
                                 Delete
                             </a>
                         </button>

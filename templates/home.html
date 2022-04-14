@@ -22,7 +22,39 @@
         </div>
     </section>
 
+    <!-- Events and Announcemnts section-->
+
+    <section>
+        {% for item in object_list %}
+        <div class="container announcemnts">
+            <div class="row">
+                <div class="col-md-12 offset-md-4">
+                    <h3 id="event-heading">Announcemnts</h3>
+                </div>
+                <div class="col-md-8 offset-md-4">
+                    <div class="card" style="width: 18rem;">
+                        {% if "placeholder" in item.img.url %}
+                        <img src="{% static '/images/event.jpg' %}" alt="placeholder img">
+                        {% else %}
+                        <img src="{{ item.img.url }}" alt="event image">
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title event-title offset-1">
+                            {{ item.title}}
+                        </h4>
+                        <p class="card-text event-content">
+                            {{ item.content }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+        </div>
+    </section>
+    {% endfor %}
     <!--Open Hours -->
+
     <section class="open-hours">
         <div class="container-fluid">
             <div class="row row-grid">
