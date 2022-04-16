@@ -73,6 +73,7 @@ footer {
     overflow: hidden;
     color: #cda45e;
     margin-top: 36px;
+    min-width: 100%;
 }
 
 footer p {
@@ -81,6 +82,19 @@ footer p {
     margin-top: 24px;
 }
 
+.s-link {
+    border-radius: 50%;
+}
+
+.copyright:hover {
+    color: black;
+}
+
+.copyright {
+    font-family: 'Grape Nuts', cursive;
+    font-size: x-large;
+    font-weight: 600;
+}
 
 /* sign in */
 
@@ -205,7 +219,7 @@ footer p {
     opacity: .24;
 }
 
-/* Booking page content*/
+/* Booking page */
 
 
 .card {
@@ -216,14 +230,36 @@ footer p {
     float: right;
 }
 
-.btn-a {
-    color: black;
-    text-decoration: none;
+
+
+.booking-form {
+    background-color: white;
+    margin: 48px;
 }
 
-.btn-a:hover {
+.book-btn {
+    margin: 24px;
+    background: #ffb03b;
+    border: 0;
+    padding: 10px 24px;
     color: #fff;
+    transition: 0.4s;
+    border-radius: 50px;
 }
+
+.book-btn:not(:disabled) {
+    cursor: pointer;
+}
+
+.book-btn:hover {
+    background: #856433;
+}
+
+.book-btn:active {
+    background: #965e0a;
+}
+
+
 
 /* Home Page */
 
@@ -338,6 +374,141 @@ footer p {
 
 /* Menu */
 
+/* Chefs */
+
+.section-title {
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.section-title h2 {
+    margin: 15px 0 0 0;
+    font-size: 32px;
+    font-weight: 700;
+    color: #5f5950;
+}
+
+.section-title h2 span {
+    color: #ffb03b;
+}
+
+.section-title p {
+    margin: 15px auto 0 auto;
+    font-weight: 300;
+}
+
+@media (min-width: 1024px) {
+    .section-title p {
+        width: 50%;
+    }
+}
+
+.chefs {
+    background: url("../images/chefs-bg.jpg") center center no-repeat;
+    background-size: cover;
+    padding: 60px 0;
+    position: relative;
+}
+
+.chefs::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 9;
+}
+
+.chefs .container {
+    position: relative;
+    z-index: 10;
+}
+
+
+.chefs .member {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+}
+
+
+.chefs .member .pic {
+    overflow: hidden;
+}
+
+.chefs .member .member-info {
+    position: absolute;
+    bottom: -80px;
+    left: 20px;
+    right: 20px;
+    background: #fff;
+    padding: 20px 0;
+    color: #433f39;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+
+.chefs .member h4 {
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #6c665c;
+    position: relative;
+    padding-bottom: 10px;
+    font-family: 'Roboto Slab', serif;
+}
+
+.chefs .member h4::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 1px;
+    background: #ffcf88;
+    bottom: 0;
+    left: calc(50% - 25px);
+}
+
+.chefs .member span {
+    font-style: italic;
+    display: block;
+    font-size: 13px;
+}
+
+.chefs .member .social {
+    margin-top: 15px;
+}
+
+.chefs .member .social a {
+    transition: color 0.3s;
+    color: #7a7368;
+}
+
+.chefs .member .social a:hover {
+    color: #ffb03b;
+}
+
+.chefs .member .social i {
+    font-size: 16px;
+    margin: 0 2px;
+}
+
+@media (max-width: 992px) {
+    .chefs .member {
+        margin-bottom: 110px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .chefs {
+        background-attachment: fixed;
+    }
+}
+
+/* Menu View*/
 
 .menu .menu-item {
     margin-top: 50px;

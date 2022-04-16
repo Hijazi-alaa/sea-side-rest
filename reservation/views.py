@@ -5,10 +5,6 @@ from .models import Booking
 from .forms import BookingForm
 
 
-def home_view(request):
-    return render(request, 'home.html')
-    
-
 class BookingList(generic.ListView):
 
     model = Booking
@@ -26,13 +22,12 @@ class BookingList(generic.ListView):
         return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
-        form = BookingForm()
-        if request.method == 'POST':
-            form = BookingForm(request.POST)
-            if form.is_valid():
-                form.save()
-
-                return redirect('/')
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            pre_save_form = form.save(commit=False)
+            pre_save_form.guest = User.objects.get(pk=self.request.user.pk)
+            pre_save_form.save()
+            return redirect('bookings')
 
         context = {'form': form}
         return render(request, self.template_name, context)

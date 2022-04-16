@@ -4,93 +4,98 @@
 {% load crispy_forms_tags %}
 
 {% for booking in booking_list %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 offset-md-2 account-div">
-            <div class="card">
-                {% if booking.status == 1 %}
-                <div class="card-header">
-                    <h5>Booking approved</h5>
-                    <div class="spinner-grow text-success" role="status">
-                        <span class="visually-hidden"></span>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-2 account-div">
+                <div class="card">
+                    {% if booking.status == 1 %}
+                    <div class="card-header">
+                        <h5>Booking approved</h5>
+                        <div class="spinner-grow text-success" role="status">
+                            <span class="visually-hidden"></span>
+                        </div>
+                        <div class="edit-booking">
+                            <button type="button" class="btn btn-warning">
+                                <a class="btn-a" href="/edit/{{ booking.id }}">Edit
+                                </a>
+                            </button>
+                            <button type="button" class="btn btn-danger">
+                                <a class="btn-a" href="/delete/{{ booking.id }}">
+                                </a>
+                            </button>
+                        </div>
                     </div>
-                    <div class="edit-booking">
-                        <button type="button" class="btn btn-warning">
-                            <a class="btn-a" href="/edit/{{ booking.id }}">Edit
-                            </a>
-                        </button>
-                        <button type="button" class="btn btn-danger">
-                            <a class="btn-a" href="/delete/{{ booking.id }}">
-                            </a>
-                        </button>
+                    {% else %}
+                    <div class="card-header">
+                        <h5>Booking waiting for approval</h5>
+                        <div class="spinner-grow text-danger" role="status">
+                            <span class="visually-hidden"></span>
+                        </div>
+                        <div class="edit-booking">
+                            <button type="button" class="btn btn-warning">
+                                <a class="btn-a" href="{% url 'edit' booking.id %}">Edit
+                                </a>
+                            </button>
+                            <button type="button" class="btn btn-danger">
+                                <a class="btn-a" href="{% url 'delete' booking.id %}">
+                                    Delete
+                                </a>
+                            </button>
+                        </div>
                     </div>
-                </div>
-                {% else %}
-                <div class="card-header">
-                    <h5>Booking waiting for approval</h5>
-                    <div class="spinner-grow text-danger" role="status">
-                        <span class="visually-hidden"></span>
+                    {% endif %}
+                    <div class="card-body">
+                        <p class="card-text">
+                            {% load account %}
+                            {% user_display user %}<br>
+                            Booking time: {{ booking.arrival_time }}
+                            <br>
+                            Until: {{ booking.leaving_time }}
+                            <br>
+                            Party size: {{ booking.num_of_guests }}
+                            <br>
+                            Special Requests: {{ booking.special_requests }}
+                        </p>
                     </div>
-                    <div class="edit-booking">
-                        <button type="button" class="btn btn-warning">
-                            <a class="btn-a" href="{% url 'edit' booking.id %}">Edit
-                            </a>
-                        </button>
-                        <button type="button" class="btn btn-danger">
-                            <a class="btn-a" href="{% url 'delete' booking.id %}">
-                                Delete
-                            </a>
-                        </button>
+                    {% if booking.updated_on %}
+                    <div class="card-footer text-muted">
+                        {{ booking.updated_on }}
                     </div>
+                    {% else %}
+                    <div class="card-footer text-muted">
+                        {{ booking.created_on }}
+                    </div>
+                    {% endif %}
                 </div>
-                {% endif %}
-                <div class="card-body">
-                    <p class="card-text">
-                        {% load account %}
-                        {% user_display user %}<br>
-                        Booking time: {{ booking.arrival_time }}
-                        <br>
-                        Until: {{ booking.leaving_time }}
-                        <br>
-                        Party size: {{ booking.num_of_guests }}
-                        <br>
-                        Special Requests: {{ booking.special_requests }}
-                    </p>
-                </div>
-                {% if booking.updated_on %}
-                <div class="card-footer text-muted">
-                    {{ booking.updated_on }}
-                </div>
-                {% else %}
-                <div class="card-footer text-muted">
-                    {{ booking.created_on }}
-                </div>
-                {% endif %}
             </div>
         </div>
     </div>
-</div>
-{% empty %}
-<div class="div">
-    <h3>
-        You have no bookings at the moment
-    </h3>
-</div>
-{% endfor %}
-
-<div class="container">
-    <div class="row">
-
-        <p>Create a table booking</p>
-        <form method="post">
-            {{ form | crispy }}
-            {% csrf_token %}
-
-            <button type="submit">Send</button>
-        </form>
-
+    {% empty %}
+    <div class="div">
+        <h3>
+            You have no bookings at the moment
+        </h3>
     </div>
-</div>
+</section>
+{% endfor %}
+<section class="booking-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-3">
+                <p>Create a table booking</p>
+                <form method="post">
+                    <p>Booking as : {{user.username}}</p>
+                    {{ form | crispy }}
+                    {% csrf_token %}
+                    <div class="text-center">
+                        <button class=" book-btn" type="submit">Book Table</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 {% endblock %}

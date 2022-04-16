@@ -15,8 +15,6 @@ class Booking(models.Model):
     special_requests = models.TextField(max_length=300, blank=True,)
     status = models.IntegerField(choices=STATUS, default=0)
 
-    
-
 
     class Meta:
         ordering = ["-created_on"]
