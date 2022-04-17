@@ -3,18 +3,41 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<div class="container">
-    <div class="row">
-
-        <h3>Update booking</h3>
-        <form method="post">
-            {{ form | crispy }}
-            {% csrf_token %}
-
-            <button type="submit">Edit Booking</button>
-        </form>
-
+{% if user.is_authenticated %}
+{% if user == booking.guest %}
+<section class="booking-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-3">
+                <p>Update your booking</p>
+                <form method="post">
+                    {{ form | crispy }}
+                    {% csrf_token %}
+                    <div class="text-center">
+                        <button class=" book-btn" type="submit">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
+</section>
+{% else %}
+<div class="col-md-6 offset-md-2">
+    <h3>
+        Ops, looks like you are trying to update a booking that some one else made.
+    </h3>
+    <p>
+        Sorry only the user who made this booking is allowed to update it....
+    </p>
+    {% endif %}
 </div>
 
+{% else %}
+<div class="col-md-6 offset-md-2">
+    <h3>
+        Sorry! you have to be logged in to view this page!
+        please <span><a href="{% url 'account_login' %}">Log In</a></span>.
+    </h3>
+</div>
+{% endif %}
 {% endblock %}

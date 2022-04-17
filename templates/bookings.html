@@ -3,60 +3,42 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
+{% if user.is_authenticated %}
 {% for booking in booking_list %}
 <section>
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-2 account-div">
                 <div class="card">
-                    {% if booking.status == 1 %}
                     <div class="card-header">
-                        <h5>Booking approved</h5>
-                        <div class="spinner-grow text-success" role="status">
-                            <span class="visually-hidden"></span>
-                        </div>
+                        {% if user.is_authenticated %}
                         <div class="edit-booking">
-                            <button type="button" class="btn btn-warning">
-                                <a class="btn-a" href="/edit/{{ booking.id }}">Edit
-                                </a>
-                            </button>
-                            <button type="button" class="btn btn-danger">
-                                <a class="btn-a" href="/delete/{{ booking.id }}">
-                                </a>
-                            </button>
-                        </div>
-                    </div>
-                    {% else %}
-                    <div class="card-header">
-                        <h5>Booking waiting for approval</h5>
-                        <div class="spinner-grow text-danger" role="status">
-                            <span class="visually-hidden"></span>
-                        </div>
-                        <div class="edit-booking">
-                            <button type="button" class="btn btn-warning">
+                            <button type="button" class="btn btn-outline-secondary btn-sm">
                                 <a class="btn-a" href="{% url 'edit' booking.id %}">Edit
                                 </a>
                             </button>
-                            <button type="button" class="btn btn-danger">
+                            <button type="button" class="btn btn-outline-danger btn-sm">
                                 <a class="btn-a" href="{% url 'delete' booking.id %}">
                                     Delete
                                 </a>
                             </button>
                         </div>
+                        {% endif %}
                     </div>
-                    {% endif %}
                     <div class="card-body">
-                        <p class="card-text">
-                            {% load account %}
-                            {% user_display user %}<br>
-                            Booking time: {{ booking.arrival_time }}
-                            <br>
-                            Until: {{ booking.leaving_time }}
-                            <br>
-                            Party size: {{ booking.num_of_guests }}
-                            <br>
-                            Special Requests: {{ booking.special_requests }}
-                        </p>
+                        {% load account %}
+                        <h4>{% user_display user %}</h4>
+                        <ul class="card-text">
+                            <li>Booking time: {{ booking.arrival_time }}</li>
+                            <li>Until: {{ booking.leaving_time }}</li>
+                            <li>Party size: {{ booking.num_of_guests }}</li>
+                            <li>Special Requests: {{ booking.special_requests }}</li>
+                            {% if booking.status == 1 %}
+                            <li>Booking Approved </li>
+                            {% else %}
+                            <li>Booking waiting for approval</li>
+                            {% endif %}
+                        </ul>
                     </div>
                     {% if booking.updated_on %}
                     <div class="card-footer text-muted">
@@ -96,6 +78,14 @@
         </div>
     </div>
 </section>
+{% else %}
+<div class="col-md-6 offset-md-2">
+    <h3>
+        Sorry! you have to be logged in to view this page!
+        please <span><a href="{% url 'account_login' %}">Log In</a></span>.
+    </h3>
+</div>
 
+{% endif %}
 
 {% endblock %}

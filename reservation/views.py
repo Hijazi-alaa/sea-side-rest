@@ -34,22 +34,24 @@ class BookingList(generic.ListView):
 
 
 def edit_booking(request, booking_id):
-    booking = get_object_or_404(Booking, id=booking_id)
-
-    if request.method == 'POST':
-        form = BookingForm(request.POST, instance=booking)
-        if form.is_valid():
-            form.save()
-            return redirect('/')
-
-    form = BookingForm(instance=booking)
-    context = {
-        'form': form
-    }
-    return render(request, 'update_booking.html', context)
+    """
+    edit booking in database
+    """
+    booking = get_object_or_404(Booking, pk=booking_id)
+    form = BookingForm(request.POST or None, instance=booking)
+    if form.is_valid():
+        form.save()
+        return redirect('bookings')
+    return render(request, 'update_booking.html', context={
+        'form': form,
+        'booking': booking,
+    })
 
 
 def delete_booking(request, booking_id):
+    """
+    delete booking from database
+    """
     booking = get_object_or_404(Booking, id=booking_id)
     booking.delete()
-    return redirect('/')
+    return redirect('bookings')

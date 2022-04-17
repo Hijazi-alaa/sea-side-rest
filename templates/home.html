@@ -1,58 +1,98 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<!--Hero Image-->
+
 <article>
-    <section>
-        <div class="img-div img-fluid">
-            <img class="hero-img" src="{% static '/images/hero-img.jpg' %}" alt="Seaside rest img">
-            <h2>
-                <em>
-                    Sea Side
-                </em>
-            </h2>
-            <p>
-                Diner's choice restaurant's award 2021
-            </p>
-            <button class="img-btn btn">
-                <a href="{% url 'bookings' %}">
-                    Book a Table
-                </a>
-            </button>
+    <!--Hero Image-->
+    <section id="hero" class="d-flex align-items-center">
+        <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
+            <div class="row">
+                <div class="col-lg-8 offset-md-3">
+                    <h2>Welcome to <span>Sea Side</span></h2>
+                    <h3>
+                        Proud to provide service and quality food for over 10 years.
+                    </h3>
+                    <div class="btns">
+                        <a href="#menu" class="btn-menu animated fadeInUp scrollto">Our Menu</a>
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'bookings' %}" class="btn-book animated fadeInUp scrollto">Book a Table</a>
+                        {% else %}
+                        <a href="{% url 'account_login' %}" class="btn-book animated fadeInUp scrollto">Book a Table</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- Why us -->
+
+    <section id="why-us" class="why-us">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Sea Side Restaurant</h2>
+                <p>Proud to provide service and quality food for over 10 years</p>
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-4">
+                    <div class="box" data-aos="zoom-in" data-aos-delay="100">
+                        <span><i class="fa-solid fa-star"></i></span>
+                        <h4>Atmosphare</h4>
+                        <p>Enjoy our beach side atmosphare all year round and quality music by world renounced DJs</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                    <div class="box" data-aos="zoom-in" data-aos-delay="200">
+                        <span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                        <h4>Service</h4>
+                        <p>Our staff provide you wtih everything you need so you can feel at home.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                    <div class="box" data-aos="zoom-in" data-aos-delay="300">
+                        <span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                        <h4>Food</h4>
+                        <p>Enjoy our top quality food made for you by our world renounced kitchen staff.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
     <!-- Events and Announcemnts section-->
 
-    <section>
+    <section id="event" class="event">
         {% for item in object_list %}
-        <div class="container announcemnts">
+        <div class="container" data-aos="fade-up">
+
             <div class="row">
-                <div class="col-md-6 offset-md-4">
-                    <h3 id="event-heading">Announcemnts</h3>
-                </div>
-                <div class="col-md-8 offset-md-4">
-                    <div class="card" style="width: 18rem;">
+                <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="event-img">
                         {% if "placeholder" in item.img.url %}
                         <img src="{% static '/images/event.jpg' %}" alt="placeholder img">
                         {% else %}
                         <img src="{{ item.img.url }}" alt="event image">
                         {% endif %}
                     </div>
-                    <div class="card-body">
-                        <h4 class="card-title event-title offset-1">
-                            {{ item.title}}
-                        </h4>
-                        <p class="card-text event-content">
-                            {{ item.content }}
-                        </p>
-                    </div>
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                    <h3>{{ item.title }}</h3>
+                    <p class="fst-italic">
+                        {{ item.content }}
+                    </p>
                 </div>
             </div>
             {% empty %}
         </div>
     </section>
     {% endfor %}
+
     <!--Open Hours -->
 
     <section class="open-hours">
@@ -60,9 +100,9 @@
             <div class="row row-grid">
                 <div class="col-md-6">
                     <div class="my-5 d-flex justify-content-center">
-                        <h3 class="open-heading">
+                        <h2>
                             Oppening Hours
-                        </h3>
+                        </h2>
                     </div>
                     <div class="d-flex justify-content-around time">
                         <div>
@@ -86,9 +126,9 @@
 
                 <div class="col-md-6">
                     <div class="my-5 d-flex justify-content-center">
-                        <h3 class="open-heading">
-                            Our Location
-                        </h3>
+                        <h2>
+                            How to find us:
+                        </h2>
                     </div>
                     <div class="col-md-4 offset-md-3" id="map">
 
