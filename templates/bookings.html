@@ -5,6 +5,7 @@
 
 {% if user.is_authenticated %}
 {% for booking in booking_list %}
+<!-- Booking list -->
 <section>
     <div class="container">
         <div class="row">
@@ -29,14 +30,14 @@
                         {% load account %}
                         <h4>{% user_display user %}</h4>
                         <ul class="card-text">
-                            <li>Booking time: {{ booking.arrival_time }}</li>
+                            <li>Date and Time: {{ booking.arrival_time }}</li>
                             <li>Until: {{ booking.leaving_time }}</li>
                             <li>Party size: {{ booking.num_of_guests }}</li>
-                            <li>Special Requests: {{ booking.special_requests }}</li>
+                            <li>Special Requests: {{ booking.special_requests | safe }}</li>
                             {% if booking.status == 1 %}
-                            <li>Booking Approved </li>
+                            <li>Booking Approved <span><i id="approved-sign" class="fa-solid fa-square-check"></i></span></li>
                             {% else %}
-                            <li>Booking waiting for approval</li>
+                            <li>Booking waiting for approval <span> <i id="waiting-sign" class="fa-solid fa-hourglass"></i> </span></i></li>
                             {% endif %}
                         </ul>
                     </div>
@@ -53,23 +54,22 @@
             </div>
         </div>
     </div>
-    {% empty %}
-    <div class="div">
-        <h3>
-            You have no bookings at the moment
-        </h3>
-    </div>
 </section>
+<!-- End of Booking list-->
+
 {% endfor %}
+<!-- Booking form -->
 <section class="booking-form">
     <div class="container">
         <div class="row">
             <div class="col-md-4 offset-md-3">
-                <p>Create a table booking</p>
+                <h2>Create a table booking</h2>
                 <form method="post">
-                    <p>Booking as : {{user.username}}</p>
-                    {{ form | crispy }}
-                    {% csrf_token %}
+                    <div class="form-row">
+                        <p>Booking as : {{user.username}}</p>
+                        {{ form | crispy }}
+                        {% csrf_token %}
+                    </div>
                     <div class="text-center">
                         <button class=" book-btn" type="submit">Book Table</button>
                     </div>
@@ -78,6 +78,7 @@
         </div>
     </div>
 </section>
+<!-- End of booking form -->
 {% else %}
 <div class="col-md-6 offset-md-2">
     <h3>

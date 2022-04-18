@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-
+<!-- Chefs -->
 <section id="chefs" class="chefs">
     <div class="container">
 
@@ -20,10 +20,10 @@
                         <h4>Walter White</h4>
                         <span>Master Chef</span>
                         <div class="social">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>
@@ -36,10 +36,10 @@
                         <h4>Sarah Jhonson</h4>
                         <span>Patissier</span>
                         <div class="social">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>
@@ -52,21 +52,20 @@
                         <h4>William Anderson</h4>
                         <span>Cook</span>
                         <div class="social">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
 </section>
+<!--End of chefs -->
 
-
+<!-- Menu -->
 <div class="flex-row">
     <h2 class="d-flex justify-content-center subtitle">
         Starters
@@ -84,7 +83,7 @@
                 </div>
                 <div class="menu-ingredients">
                     <p>
-                        {{ starter.discreption }}
+                        {{ starter.discreption | safe }}
                     </p>
                 </div>
             </div>
@@ -110,7 +109,7 @@
                 </div>
                 <div class="menu-ingredients">
                     <p>
-                        {{ main.discreption }}
+                        {{ main.discreption | safe }}
                     </p>
                 </div>
             </div>
@@ -135,7 +134,7 @@
                 </div>
                 <div class="menu-ingredients">
                     <p>
-                        {{ side.discreption }}
+                        {{ side.discreption | safe  }}
                     </p>
                 </div>
             </div>
@@ -160,7 +159,7 @@
                 </div>
                 <div class="menu-ingredients">
                     <p>
-                        {{ desert.discreption }}
+                        {{ desert.discreption | safe  }}
                     </p>
                 </div>
             </div>
@@ -168,6 +167,7 @@
     </div>
     {% endfor %}
 </section>
+<!-- End of Menu -->
 
 
 {% endblock %}

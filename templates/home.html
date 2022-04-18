@@ -7,15 +7,15 @@
     <section id="hero" class="d-flex align-items-center">
         <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
             <div class="row">
-                <div class="col-lg-8 offset-md-3">
+                <div class="col-lg-8">
                     <h2>Welcome to <span>Sea Side</span></h2>
                     <h3>
                         Proud to provide service and quality food for over 10 years.
                     </h3>
                     <div class="btns">
-                        <a href="#menu" class="btn-menu animated fadeInUp scrollto">Our Menu</a>
+                        <a href="{% url 'menu' %}" class="btn-menu animated fadeInUp scrollto">Our Menu</a>
                         {% if user.is_authenticated %}
-                        <a href="{% url 'bookings' %}" class="btn-book animated fadeInUp scrollto">Book a Table</a>
+                        <a href=" {% url 'bookings' %}" class="btn-book animated fadeInUp scrollto">Book a Table</a>
                         {% else %}
                         <a href="{% url 'account_login' %}" class="btn-book animated fadeInUp scrollto">Book a Table</a>
                         {% endif %}
@@ -24,6 +24,7 @@
             </div>
         </div>
     </section>
+    <!-- End of hero image -->
 
     <!-- Why us -->
 
@@ -65,6 +66,8 @@
 
         </div>
     </section>
+    <!-- End of Why us -->
+
     <!-- Events and Announcemnts section-->
 
     <section id="event" class="event">
@@ -75,9 +78,9 @@
                 <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
                     <div class="event-img">
                         {% if "placeholder" in item.img.url %}
-                        <img src="{% static '/images/event.jpg' %}" alt="placeholder img">
+                        <img src="{% static '/images/event.jpg' %}" class="events-img" alt="placeholder img">
                         {% else %}
-                        <img src="{{ item.img.url }}" alt="event image">
+                        <img src="{{ item.img.url }}" class="events-img" alt="event image">
                         {% endif %}
                     </div>
                 </div>
@@ -92,6 +95,7 @@
         </div>
     </section>
     {% endfor %}
+    <!-- End of events -->
 
     <!--Open Hours -->
 
@@ -121,6 +125,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- End of open hours -->
 
                 <!-- Google Map Location-->
 
@@ -146,9 +151,11 @@
             </div>
         </div>
     </section>
+    <!-- End of location -->
 </article>
+
 <script>
-    initMap() {
+    function initMap() {
         const seaside = {
             lat: 62.390246,
             lng: 17.320694
