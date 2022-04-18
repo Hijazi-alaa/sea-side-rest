@@ -14,15 +14,11 @@
                     <div class="card-header">
                         {% if user.is_authenticated %}
                         <div class="edit-booking">
-                            <button type="button" class="btn btn-outline-secondary btn-sm">
-                                <a class="btn-a" href="{% url 'edit' booking.id %}">Edit
-                                </a>
-                            </button>
-                            <button type="button" class="btn btn-outline-danger btn-sm">
-                                <a class="btn-a" href="{% url 'delete' booking.id %}">
-                                    Delete
-                                </a>
-                            </button>
+                            <a class="btn-a btn btn-outline-secondary btn-sm" href="{% url 'edit' booking.id %}">Edit
+                            </a>
+                            <a class="btn-a btn btn-outline-danger btn-sm" href="{% url 'delete' booking.id %}">
+                                Delete
+                            </a>
                         </div>
                         {% endif %}
                     </div>
@@ -37,7 +33,7 @@
                             {% if booking.status == 1 %}
                             <li>Booking Approved <span><i id="approved-sign" class="fa-solid fa-square-check"></i></span></li>
                             {% else %}
-                            <li>Booking waiting for approval <span> <i id="waiting-sign" class="fa-solid fa-hourglass"></i> </span></i></li>
+                            <li>Booking waiting for approval <span> <i id="waiting-sign" class="fa-solid fa-hourglass"></i></span></li>
                             {% endif %}
                         </ul>
                     </div>

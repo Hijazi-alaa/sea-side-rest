@@ -321,7 +321,7 @@ footer p {
 
 #hero h3 {
     color: #eee;
-    margin-bottom: 10px 0 0 0;
+    margin-bottom: 10px;
     font-size: 22px;
 }
 
@@ -388,12 +388,8 @@ footer p {
     animation-delay: 0s;
     -webkit-animation: pulsate-btn 2s;
     animation: pulsate-btn 2s;
-    -webkit-animation-direction: forwards;
-    animation-direction: forwards;
     -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
-    -webkit-animation-timing-function: steps;
-    animation-timing-function: steps;
     opacity: 1;
     border-radius: 50%;
     border: 5px solid rgba(205, 164, 94, 0.7);
@@ -784,7 +780,7 @@ footer p {
 /* Menu View*/
 
 
-#menu {
+.menu-space {
     margin-bottom: 100px;
 }
 

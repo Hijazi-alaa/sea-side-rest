@@ -1,108 +1,188 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Sea Side Restaurant
 
-Welcome Alaa Hijazi,
+This is a restaurant app allows users to book a table at a cetrain time,
+site owner or admin can approve or dismiss the bookings.<br>
+Site also has a menu page where Admin can add, edit, or delete menu items for visitors to see. <br>
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+<ul>
+Technologies and libraries used:
+<li>Python</li>
+<li>Django.</li>
+<li>Bootstrap</li>
+<li>HTML/CSS</li>
+<li>JavaScript</li>
+<li>Cloudinary-storage</li>
+<li>PostgreSQL</li>
+</ul>
+Sea Side consists of 3 seperated apps:
+reservation, menu and announcment
+<hr>
+Additionally  the admin can use admin panel to publish new events or announcemets wish then displayed in a section called announcements on the home page. <br>
+Provided with Django built in user model, the app requires users to register or log in in order to create a booking, edit their own existing booking, or even delete their bookings. Bookings are only available to see for the user that created them.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+The application is fully responsive on all devices.
+<img>
 
-## Gitpod Reminders
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+Sea Side Restaurant is a full-stack application developed using agile methodology.
+below are the issues that were defined prior to starting the applications with acceptance criteria
 
-`python3 -m http.server`
+## Features <hr>
+In implementation i followed the issues's acceptance criteria on every Issue
 
-A blue button should appear to click: _Make Public_,
+### stage 1
+<img src="readme-images/1.png">
 
-Another blue button should appear to click: _Open Browser_.
+#### User Story View booking
+<img src="readme-images/issue13.png">
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+#### User Story Add a booking
+<img src="readme-images/issue1.png">
 
-A blue button should appear to click: _Make Public_,
+#### User Story Booking confirmation
+<img src="readme-images/issue14.png">
 
-Another blue button should appear to click: _Open Browser_.
+#### User Story Authorization
+<img src="readme-images/issue2.png">
+<hr>
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### stage 2
+<img src="readme-images/2.png">
 
-To log into the Heroku toolbelt CLI:
+#### User Story Booking page
+<img src="readme-images/issue7.png">
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+#### User Story Booking Authentication
+<img src="readme-images/issue5.png">
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+#### User Story Authenticate to edit a booking
+<img src="readme-images/issue6.png">
+<hr>
 
-------
+### stage 3
+<img src="readme-images/3.png">
 
-## Release History
+#### User Story Delete Booking
+<img src="readme-images/issue4.png">
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+#### User Story Edit booking
+<img src="readme-images/issue3.png">
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+#### User Story Oppening Hours
+<img src="readme-images/issue9.png">
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+<hr>
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+### stage 4
+<img src="readme-images/4.png">
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+#### User Story Menu
+<img src="readme-images/issue8.png">
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+#### User Story Address 
+<img src="readme-images/issue10.png">
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+#### User Story Announcements
+<img src="readme-images/issue12.png">
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+#### User Story Map
+<img src="readme-images/issue11.png">
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+<hr>
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+### Other Features
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+<ul>
+<li>Navbar contains a restaurant's logo and with links to all relveant pages, Booking only appears for logged-in users, instead, a none logged-in user would see a sign-up and sign in links</li>
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+<li>The hero image on the home page contains 2 buttons 1 for creating a booking, that direct none logged-in users to log in first in order to book.</li>
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+<li>View menu button available to all visitors.</li>
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+<li>About us section on the home page showcase the restaurant's services.</li>
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+<li>Google map API provided on Home page showing the location of the restaurant.</li>
 
-------
+<li>Menu page provided with an introduction of Kitchen chefs with social media links for each chef.</li>
 
-## FAQ about the uptime script
+<li>Feedback provided to all user's actions in the form of messages, messages will dissapear after 3 seconds of appearing.</li>
+<li>Responsive footer at the bottom of every page, provided with social media links.</li>
+</ul>
+<hr>
 
-**Why have you added this script?**
+### Potential features to implement:
+<ul>
+<li>Ability for admin to change oppening hours.</li>
+<li>Check availabilty of tables and auto accept bookings according to it.</li>
+</ul>
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+## Testing
+<hr>
+<ul>Manual Testing:
+<li>Booking data model tested: all of it's CRUD functionality for the admin and users</li>
+<li>Tested confirm bookings by admin.</li>
+<li>Menu data model tested: create and read functionality for admin, and only view for users</li>
+<li>Announcments data model: tested create and read functionality for the admin and only view for users</li>
+<li>Sign-up/ Sign-in forms and links all tested to confirm working as intended</li>
+<li>Tested Booking page links and all its functionality</li>
+<li>Tested User Authorisations to ensure role based functions such as Booking page access , edit or delete bookings</li>
+</ul>
 
-**How will this affect me?**
+### Validator Testing
+<ul>
+<li>All python code ran through PEOP8 checker succesfully.</li>
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+<li>All css files ran through css jigsaw validator with no errors</li>
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+[CSS JIGSAW](https://jigsaw.w3.org/css-validator/) passed with no erros.
+<img src="readme-images/css-jigsaw.png">
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+<li>All HTML files ran through W3C validator with no errors</li>
 
-**So….?**
+[HTML W3C validator](https://validator.w3.org/)
+</ul>
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+<hr>
 
-**Can I opt out?**
+## Deployment
+In this project
+<ol>
+<li>Installing Django and supporting libraries</li>
+    <ul>
+        <li>Installed Django and gunicorn</li>
+        <li>Installed supporting libraries</li>
+        <li>Installed Cloudinary Libraries</li>
+        <li>Created project and app</li>
+        <li>Ran server to test</li>
+    </ul>
+<li>Deploying an app to Heroku</li>
+    <ul>
+    <li></li>
+    </ul>
+</ol>
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+## Credits
+<hr>
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+Hero Image was taking by a google search, Original site owner is :
+https://www.ahusseaside.com/
 
-**Anything more?**
+Images of chefs and hero section's buttons's style are taken from a boot strap template:
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+[Bootstrapmade](https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/)
 
----
+Html elemnts main responsivenes are [Bootstrap](https://getbootstrap.com/)
 
-Happy coding!
+all icons used in the projects are [FontAwsome](https://fontawesome.com/)
+
+Fonts provided by [Google Fonts](https://fonts.google.com/)
+
+Used the lessons videos of (I think therefore i blog) for refrence on deployment and creating a model.
+
+Recived help from Daniel_c_5p on slack in :
+<ul>
+<li>restrict booking views to the user that owns the booking</li>
+<li>Help with menu view function to view menu items in 4 seperate categories</li>
+</ul>
+
+Code institute helped me get back on track on several occasions when I had bugs or any problems throughout the project.
