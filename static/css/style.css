@@ -279,7 +279,7 @@ footer p {
 #hero {
     width: 100%;
     height: 100vh;
-    background: url("../images/hero-img.jpg") top center;
+    background: url("https://res.cloudinary.com/jqueryenjoyer/image/upload/v1650302110/static/images/hero-img.1f43e1d3f3f6.jpg") top center;
     background-size: cover;
     position: relative;
     padding: 0;
@@ -673,7 +673,7 @@ footer p {
 }
 
 .chefs {
-    background: url("../images/chefs-bg.jpg") center center no-repeat;
+    background: url("https://res.cloudinary.com/jqueryenjoyer/image/upload/v1650302108/static/images/chefs-bg.5afb921653b5.jpg") center center no-repeat;
     background-size: cover;
     padding: 60px 0;
     position: relative;

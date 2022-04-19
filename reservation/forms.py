@@ -35,19 +35,3 @@ class BookingForm(ModelForm):
                 }),
             'leaving_time': TimePickerInput(attrs={'class': 'form-control'}),
         }
-
-    def accepted_times(self):
-        """
-        function defining accepting criteria
-        for the arrival and leaving time fields.
-        """
-        arrival_time = self.cleaned_data.get('arrival_time')
-        leaving_time = self.cleaned_data.get('leaving_time')
-
-        if not arrival_time < leaving_time:
-            raise ValidationError(
-                "Something is not right, Your leaving time \
-                    should not be before your arrival."
-            )
-        else:
-            return self.changed_data

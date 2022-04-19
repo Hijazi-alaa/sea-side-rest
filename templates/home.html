@@ -75,7 +75,7 @@
             <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
                 <div class="event-img">
                     {% if "placeholder" in item.img.url %}
-                    <img src="{% static '/images/event.jpg' %}" class="events-img" alt="placeholder img">
+                    <img src="https://res.cloudinary.com/jqueryenjoyer/image/upload/v1650302109/static/images/event.557ab93b5a8f.jpg" class="events-img" alt="placeholder img">
                     {% else %}
                     <img src="{{ item.img.url }}" class="events-img" alt="event image">
                     {% endif %}
@@ -127,7 +127,6 @@
             <!-- End of open hours -->
 
             <!-- Google Map Location-->
-
             <div class="col-md-6">
                 <div class="my-5 d-flex justify-content-center">
                     <h2>
@@ -146,11 +145,11 @@
                 </div>
             </div>
         </div>
-    </div>
 </section>
 
-
 <!-- End of location -->
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvK0tGuAa1_UCZ0B5U_hrdgt8zHzurUX8&callback=initMap&v=weekly" async></script>
 
 <script>
     function initMap() {
@@ -168,7 +167,10 @@
         });
     }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvK0tGuAa1_UCZ0B5U_hrdgt8zHzurUX8&callback=initMap&v=weekly" async></script>
+
+
+
+
 
 
 {% endblock %}
