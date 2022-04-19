@@ -1,8 +1,14 @@
 # Sea Side Restaurant
 
-This is a restaurant app allows users to book a table at a cetrain time,
-site owner or admin can approve or dismiss the bookings.<br>
-Site also has a menu page where Admin can add, edit, or delete menu items for visitors to see. <br>
+## [Sea Side](https://seaside-rest.herokuapp.com/)
+
+<img src="readme-images/responsive.png">
+
+<br>
+
+This is a restaurant app that allows users to book a table at a certain time,
+the site owner or admin can approve or dismiss the bookings. <br>
+The site also has a menu page where Admin can add, edit, or delete menu items for visitors to see. <br>
 
 <ul>
 Technologies and libraries used:
@@ -14,21 +20,24 @@ Technologies and libraries used:
 <li>Cloudinary-storage</li>
 <li>PostgreSQL</li>
 </ul>
-Sea Side consists of 3 seperated apps:
-reservation, menu and announcment
+Sea Side consists of 3 separated apps: reservation, menu and announcement
 <hr>
-Additionally  the admin can use admin panel to publish new events or announcemets wish then displayed in a section called announcements on the home page. <br>
-Provided with Django built in user model, the app requires users to register or log in in order to create a booking, edit their own existing booking, or even delete their bookings. Bookings are only available to see for the user that created them.
+Additionally, the admin can use the admin panel to publish new events and announcements wish then displayed in a section called announcements on the home page. <br>
+Provided with Django's built-in user model, the app requires users to register or log in in order to create a booking, edit their own existing booking, or even delete their bookings. Bookings are only available to see for the user that created them.
 
 The application is fully responsive on all devices.
 <img>
 
-
 Sea Side Restaurant is a full-stack application developed using agile methodology.
-below are the issues that were defined prior to starting the applications with acceptance criteria
+below are the issues that were defined before starting the applications with acceptance criteria
+
+### mock up
+I created a mock up of the home page using [Figma.com](https://www.figma.com/)
+<img src="readme-images/mockup.png">
+Worth to know that changes made to the homepage design while developing.
 
 ## Features <hr>
-In implementation i followed the issues's acceptance criteria on every Issue
+Through out development, I followed the issues' acceptance criteria on every issue
 
 ### stage 1
 <img src="readme-images/1.png">
@@ -93,46 +102,59 @@ In implementation i followed the issues's acceptance criteria on every Issue
 ### Other Features
 
 <ul>
-<li>Navbar contains a restaurant's logo and with links to all relveant pages, Booking only appears for logged-in users, instead, a none logged-in user would see a sign-up and sign in links</li>
+<li>Navbar contains a restaurant's logo and links to all relevant pages, Booking only appears for logged-in users, instead, a none logged-in user would see a sign-up and sign-in links</li>
+<img src="readme-images/navbar.png"> <br>
+<img src="readme-images/navbar2.png">
 
-<li>The hero image on the home page contains 2 buttons 1 for creating a booking, that direct none logged-in users to log in first in order to book.</li>
+<li>The hero image on the home page contains 2 buttons 1 for creating a booking, that redirects non logged-in users to log in first in order to book.</li>
+<br>
+<img src="readme-images/hero-btn.png">
+<br>
 
 <li>View menu button available to all visitors.</li>
 
 <li>About us section on the home page showcase the restaurant's services.</li>
 
-<li>Google map API provided on Home page showing the location of the restaurant.</li>
+<li>Google map API provided on the home page showing the location of the restaurant.</li>
 
 <li>Menu page provided with an introduction of Kitchen chefs with social media links for each chef.</li>
+<br>
 
-<li>Feedback provided to all user's actions in the form of messages, messages will dissapear after 3 seconds of appearing.</li>
+<img src="readme-images/chefs.png">
+<br>
+
+<li>Feedback provided to all users actions in the form of messages, messages will disappear after 3 seconds of appearing.</li>
+
 <li>Responsive footer at the bottom of every page, provided with social media links.</li>
+<br>
+<img src="readme-images/footer.png">
+<br>
 </ul>
 <hr>
 
 ### Potential features to implement:
 <ul>
-<li>Ability for admin to change oppening hours.</li>
-<li>Check availabilty of tables and auto accept bookings according to it.</li>
+<li>Ability for admin to change opening hours.</li>
+<li>Check availability of tables and auto accept bookings according to it.</li>
 </ul>
 
 ## Testing
 <hr>
 <ul>Manual Testing:
-<li>Booking data model tested: all of it's CRUD functionality for the admin and users</li>
+<li>Booking data model tested: all of its CRUD functionality for the admin and users</li>
 <li>Tested confirm bookings by admin.</li>
 <li>Menu data model tested: create and read functionality for admin, and only view for users</li>
-<li>Announcments data model: tested create and read functionality for the admin and only view for users</li>
+<li>Announcements data model: tested create and read functionality for the admin and only view for users</li>
 <li>Sign-up/ Sign-in forms and links all tested to confirm working as intended</li>
 <li>Tested Booking page links and all its functionality</li>
-<li>Tested User Authorisations to ensure role based functions such as Booking page access , edit or delete bookings</li>
+<li>Tested User Authorisations to ensure role-based functions such as Booking page access, edit or deleting bookings</li>
 </ul>
 
 ### Validator Testing
 <ul>
-<li>All python code ran through PEOP8 checker succesfully.</li>
+<li>All Python code ran through PEOP8 checker succesfully without any problem.</li>
 
-<li>All css files ran through css jigsaw validator with no errors</li>
+<li>All CSS files ran through CSS jigsaw validator with no errors</li>
 
 [CSS JIGSAW](https://jigsaw.w3.org/css-validator/) passed with no erros.
 <img src="readme-images/css-jigsaw.png">
@@ -145,7 +167,7 @@ In implementation i followed the issues's acceptance criteria on every Issue
 <hr>
 
 ## Deployment
-In this project
+At the start of making the project I the made the first deployment to Heroku after setting up the environment by doing the following steps:
 <ol>
 <li>Installing Django and supporting libraries</li>
     <ul>
@@ -157,17 +179,35 @@ In this project
     </ul>
 <li>Deploying an app to Heroku</li>
     <ul>
-    <li></li>
+    <li>Created an app on Heroku</li>
+    <li>Attached the database</li>
+    <li>Prepared environment and settings.py file</li>
+    <li>Got my statc and media files stored on Cloudinary</li>
+    <li>Deplyed the app (empty) by linking my Github and chose deploy branch.</li>
+    </ul>
+<li>Final deployment after finishing the project:</li>
+    <ul>
+    <li>Installed heroku in gitpod using the command: npm install -g heroku</li>
+    <li>Logged in to heroku in the terminal window used command: login -i</li>
+    <li>Entred command heroku git:remote -a seaside-rest to select the heroku app I created before remotly</li>
+    <li>Added and commited all changes to github</li>
+    <li>pushed to github and heroku using commands:
+    <ul>
+        <li>git push origin main</li>
+        <li>git push heroku main</li>
+    </ul>
+    </li>
     </ul>
 </ol>
+End of deployment
 
 ## Credits
 <hr>
 
-Hero Image was taking by a google search, Original site owner is :
+Hero Image was taken by a google search, Original site owner is:
 https://www.ahusseaside.com/
 
-Images of chefs and hero section's buttons's style are taken from a boot strap template:
+Images of chefs and hero sections buttons style are taken from a boot strap template:
 
 [Bootstrapmade](https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/)
 
@@ -175,9 +215,11 @@ Html elemnts main responsivenes are [Bootstrap](https://getbootstrap.com/)
 
 all icons used in the projects are [FontAwsome](https://fontawesome.com/)
 
-Fonts provided by [Google Fonts](https://fonts.google.com/)
+Fonts from by [Google Fonts](https://fonts.google.com/)
 
-Used the lessons videos of (I think therefore i blog) for refrence on deployment and creating a model.
+Map API from [Google map platform](https://mapsplatform.google.com/)
+
+Used the lessons videos of (I think therefore I blog) for reference on deployment and creating a model.
 
 Recived help from Daniel_c_5p on slack in :
 <ul>
@@ -185,4 +227,4 @@ Recived help from Daniel_c_5p on slack in :
 <li>Help with menu view function to view menu items in 4 seperate categories</li>
 </ul>
 
-Code institute helped me get back on track on several occasions when I had bugs or any problems throughout the project.
+Code institute tutor support helped me get back on track on several occasions when I had errors or any problems throughout the project.
